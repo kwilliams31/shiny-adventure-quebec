@@ -1,0 +1,41 @@
+<!-- update mongodb -->
+
+<!-- ewo6ZSAQ2YJsNur4 
+put in env file touch .env-->
+
+<!-- adding a name -->
+<!-- <form method="get" action="/update">
+    <p>Type anything!..? </p>
+    <input type="text" name="ejsFormName" value=""> 
+    <input type="submit">
+  </form> -->
+
+  <h3> Current names on hand</h3> 
+ <% for (var i=0; i< nameData.length; i++ ) { %>
+  <form method="POST" action="/deleteName/<%= nameData[i]._id %>" style="display: inline-block">  
+    <%= nameData[i].name %> (<%= nameData[i].size %>) 
+    <input type="submit" value="delete"> 
+  </form>
+  <br/>
+<% } %> 
+
+<h3> add a new dev name </h3>
+
+<form method="POST" action="/addName">
+    <label for="name">Name</label>
+        <input name="name" value="new name">
+    <br>
+    <br>
+    <input type="submit" value="add a name" />
+</form>
+
+
+<h3> Let's update the names</h3> 
+<% for (var i=0; i< nameData.length; i++ ) { %>
+ <form method="POST" action="/updateName/<%= nameData[i]._id %>" style="display: inline-block">  
+   <%= nameData[i].name %> (<%= nameData[i].size %>) 
+   <input type="submit" value="update"> 
+ </form>
+ <br/>
+<% } %> 
+
